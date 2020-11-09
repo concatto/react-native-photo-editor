@@ -336,6 +336,10 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         photoEditorSDK.clearAllViews();
     }
 
+    private boolean useDefaultColor(String text, int colorCode) {
+        return !stringIsNotEmpty(text) && colorCode == -1;
+    }
+
     private void openAddTextPopupWindow(String text, int colorCode) {
         colorCodeTextView = colorCode;
 
@@ -356,9 +360,9 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
             }
         });
         addTextColorPickerRecyclerView.setAdapter(colorPickerAdapter);
-        
+
         addTextEditText.setText(text);
-        addTextEditText.setTextColor(colorCode == -1 ? getResources().getColor(R.color.white) : colorCode);
+        addTextEditText.setTextColor(useDefaultColor(text, colorCode) ? getResources().getColor(R.color.white) : colorCode);
 
         final PopupWindow pop = new PopupWindow(PhotoEditorActivity.this);
         pop.setContentView(addTextPopupWindowRootView);
@@ -372,7 +376,8 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         addTextDoneTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addText(addTextEditText.getText().toString(), colorCodeTextView == -1 ? colorPickerColors.get(0) : colorCodeTextView);
+                String addedText = addTextEditText.getText().toString();
+                addText(addedText, useDefaultColor(addedText, colorCodeTextView) ? getResources().getColor(R.color.white) : colorCodeTextView);
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                 pop.dismiss();
