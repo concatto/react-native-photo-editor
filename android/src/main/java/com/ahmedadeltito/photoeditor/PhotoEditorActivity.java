@@ -586,7 +586,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
             System.out.println("CROP IMAGE DUD");
             startCropping();
         } else if (v.getId() == R.id.add_text_tv) {
-            openAddTextPopupWindow("", -1);
+            openAddTextPopupWindow("", colorPickerColors.get(0));
         } else if (v.getId() == R.id.add_pencil_tv) {
             updateBrushDrawingView(true);
         } else if (v.getId() == R.id.done_drawing_tv) {
