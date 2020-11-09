@@ -41,9 +41,7 @@ public class ColorPickerAdapter extends RecyclerView.Adapter<ColorPickerAdapter.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        boolean highlighted = holder.isPositionSelected(position);
-        
-        buildColorPickerView(holder.colorPickerView, colorPickerColors.get(position), highlighted);
+        buildColorPickerView(holder.colorPickerView, colorPickerColors.get(position));
     }
 
     @Override
@@ -51,7 +49,7 @@ public class ColorPickerAdapter extends RecyclerView.Adapter<ColorPickerAdapter.
         return colorPickerColors.size();
     }
 
-    private void buildColorPickerView(View view, int colorCode, boolean highlighted) {
+    private void buildColorPickerView(View view, int colorCode) {
         view.setVisibility(View.VISIBLE);
 
         ShapeDrawable biggerCircle = new ShapeDrawable(new OvalShape());
@@ -64,8 +62,8 @@ public class ColorPickerAdapter extends RecyclerView.Adapter<ColorPickerAdapter.
         smallerCircle.setIntrinsicHeight(5);
         smallerCircle.setIntrinsicWidth(5);
         smallerCircle.setBounds(new Rect(0, 0, 5, 5));
-        smallerCircle.getPaint().setColor(highlighted ? Color.WHITE : Color.GRAY);
-        smallerCircle.setPadding(10, 10, 10, 10);
+        smallerCircle.getPaint().setColor(Color.WHITE);
+        smallerCircle.setPadding(8, 8, 8, 8);
         Drawable[] drawables = {smallerCircle, biggerCircle};
 
         LayerDrawable layerDrawable = new LayerDrawable(drawables);
@@ -90,10 +88,6 @@ public class ColorPickerAdapter extends RecyclerView.Adapter<ColorPickerAdapter.
                         onColorPickerClickListener.onColorPickerClickListener(colorPickerColors.get(getAdapterPosition()));
                 }
             });
-        }
-
-        public boolean isPositionSelected(int position) {
-            return position == getAdapterPosition();
         }
     }
 
