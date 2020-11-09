@@ -390,6 +390,9 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         photoEditorSDK.setBrushDrawingMode(brushDrawingMode);
         if (brushDrawingMode) {
             updateView(View.GONE);
+
+            photoEditorSDK.setBrushColor(colorPickerColors.get(0));
+
             drawingViewColorPickerRecyclerView.setVisibility(View.VISIBLE);
             doneDrawingTextView.setVisibility(View.VISIBLE);
             eraseDrawingTextView.setVisibility(View.VISIBLE);
@@ -595,7 +598,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         } else if (v.getId() == R.id.undo_text_tv || v.getId() == R.id.undo_tv) {
             undoViews();
         } else if (v.getId() == R.id.erase_drawing_tv) {
-            eraseDrawing();
+            undoViews();
         } else if (v.getId() == R.id.go_to_next_screen_tv) {
             returnBackWithUpdateImage();
         }
