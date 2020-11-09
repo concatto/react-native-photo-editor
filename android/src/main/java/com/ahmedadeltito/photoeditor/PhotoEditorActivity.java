@@ -338,6 +338,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
 
     private void openAddTextPopupWindow(String text, int colorCode) {
         colorCodeTextView = colorCode;
+
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View addTextPopupWindowRootView = inflater.inflate(R.layout.add_text_popup_window, null);
         final EditText addTextEditText = (EditText) addTextPopupWindowRootView.findViewById(R.id.add_text_edit_text);
@@ -355,10 +356,10 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
             }
         });
         addTextColorPickerRecyclerView.setAdapter(colorPickerAdapter);
-        if (stringIsNotEmpty(text)) {
-            addTextEditText.setText(text);
-            addTextEditText.setTextColor(colorCode == -1 ? getResources().getColor(R.color.white) : colorCode);
-        }
+        
+        addTextEditText.setText(text);
+        addTextEditText.setTextColor(colorCode == -1 ? getResources().getColor(R.color.white) : colorCode);
+
         final PopupWindow pop = new PopupWindow(PhotoEditorActivity.this);
         pop.setContentView(addTextPopupWindowRootView);
         pop.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
@@ -586,7 +587,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
             System.out.println("CROP IMAGE DUD");
             startCropping();
         } else if (v.getId() == R.id.add_text_tv) {
-            openAddTextPopupWindow("", colorPickerColors.get(0));
+            openAddTextPopupWindow("", -1);
         } else if (v.getId() == R.id.add_pencil_tv) {
             updateBrushDrawingView(true);
         } else if (v.getId() == R.id.done_drawing_tv) {
