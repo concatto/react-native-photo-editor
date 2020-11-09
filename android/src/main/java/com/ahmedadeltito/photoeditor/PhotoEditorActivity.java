@@ -372,7 +372,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         addTextDoneTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addText(addTextEditText.getText().toString(), colorCodeTextView);
+                addText(addTextEditText.getText().toString(), colorCodeTextView == -1 ? colorPickerColors.get(0) : colorCodeTextView);
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                 pop.dismiss();
