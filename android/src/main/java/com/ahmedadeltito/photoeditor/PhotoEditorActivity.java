@@ -748,10 +748,10 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         Uri uri = Uri.fromFile(new File(selectedImagePath));
         UCrop.Options options = new UCrop.Options();
 
-        options.setToolbarTitle('Editar imagem');
-        options.setToolbarWidgetColor('#ffffff'),
-        options.setActiveControlsWidgetColor('#32a25f');
-        options.setToolbarColor('#3e3c90');
+        options.setToolbarTitle("Editar imagem");
+        options.setToolbarWidgetColor("#ffffff");
+        options.setActiveControlsWidgetColor("#32a25f");
+        options.setToolbarColor("#3e3c90");
 
         options.setCompressionFormat(Bitmap.CompressFormat.JPEG);
         options.setCompressionQuality(100);
