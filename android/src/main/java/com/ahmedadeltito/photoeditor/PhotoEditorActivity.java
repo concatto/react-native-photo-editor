@@ -11,6 +11,7 @@ import android.content.res.Resources;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -749,9 +750,9 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         UCrop.Options options = new UCrop.Options();
 
         options.setToolbarTitle("Editar imagem");
-        options.setToolbarWidgetColor("#ffffff");
-        options.setActiveControlsWidgetColor("#32a25f");
-        options.setToolbarColor("#3e3c90");
+        options.setToolbarWidgetColor(Color.parseColor("#ffffff"));
+        options.setActiveControlsWidgetColor(Color.parseColor("#32a25f"));
+        options.setToolbarColor(Color.parseColor("#3e3c90"));
 
         options.setCompressionFormat(Bitmap.CompressFormat.JPEG);
         options.setCompressionQuality(100);
