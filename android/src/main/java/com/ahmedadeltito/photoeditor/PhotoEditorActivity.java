@@ -750,9 +750,9 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         UCrop.Options options = new UCrop.Options();
 
         options.setToolbarTitle("Editar imagem");
-        options.setToolbarWidgetColor(Color.parseColor("#ffffff"));
-        options.setActiveWidgetColor(Color.parseColor("#32a25f"));
-        options.setToolbarColor(Color.parseColor("#3e3c90"));
+        // options.setToolbarWidgetColor(Color.parseColor("#ffffff"));
+        // options.setActiveWidgetColor(Color.parseColor("#32a25f"));
+        // options.setToolbarColor(Color.parseColor("#3e3c90"));
 
         options.setCompressionFormat(Bitmap.CompressFormat.JPEG);
         options.setCompressionQuality(100);
