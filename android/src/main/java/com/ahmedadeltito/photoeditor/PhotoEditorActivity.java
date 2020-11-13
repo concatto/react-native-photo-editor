@@ -94,7 +94,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
 
     // CROP OPTION
     private boolean cropperCircleOverlay = false;
-    private boolean freeStyleCropEnabled = true;
+    private boolean freeStyleCropEnabled = false;
     private boolean showCropGuidelines = true;
     private boolean hideBottomControls = false;
 
